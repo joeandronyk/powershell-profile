@@ -70,7 +70,7 @@ try {
     oh-my-posh font install "CaskaydiaCove"
 }
 catch {
-    Write-Error "Failed to install Font CaskaydiaCove. Error: $_"
+    Write-Error "Failed to download or install the Cascadia Code font. Error: $_"
 }
 
 # try {
@@ -97,9 +97,9 @@ catch {
 #         Remove-Item -Path ".\CascadiaCode.zip" -Force
 #     }
 # }
-catch {
-    Write-Error "Failed to download or install the Cascadia Code font. Error: $_"
-}
+# catch {
+#     Write-Error "Failed to download or install the Cascadia Code font. Error: $_"
+# }
 
 # Final check and message to the user
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
