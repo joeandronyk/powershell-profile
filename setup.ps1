@@ -25,11 +25,14 @@ if (-not (Test-InternetConnection)) {
 if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
     try {
         # Detect Version of PowerShell & Create Profile directories if they do not exist.
-        $profilePath = Split-Path -parent $PROFILE
-
-        if (!(Test-Path -Path $profilePath)) {
-            New-Item -Path $profilePath -ItemType "directory"
+        $profilePath = ""
+        if ($PSVersionTable.PSEdition -eq "Core") { 
+            $profilePath = "$env:userprofile\Documents\Powershell"
         }
+        elseif ($PSVersionTable.PSEdition -eq "Desktop") {
+            $profilePath = "$env:userprofile\Documents\WindowsPowerShell"
+        }
+        $profilePath = Split-Path -parent $PROFILE
 
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -OutFile $PROFILE
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/powershell-theme.omp.json -OutFile $profilePath\powershell-theme.omp.json
