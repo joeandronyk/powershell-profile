@@ -2,12 +2,24 @@
 
 A stylish and functional PowerShell profile that looks and feels almost as good as a Linux terminal.
 
+## Prerequisites
+
+1. Install `Windows Terminal` via Powershell using the below code.  (If you don't have winget you can install it via the Microsoft store.)
+    ```
+    winget install Microsoft.WindowsTerminal
+    ```
+
+2. Install `Powershell 7.x` via Powershell using the below code. (If you don't have winget you can install it via the Microsoft store.)
+   ```
+   winget install Microsoft.Powershell
+   ```
+
 ## ⚡ One Line Install (Elevated PowerShell Recommended)
 
 Execute the following command in an elevated PowerShell window to install the PowerShell profile:
 
 ```
-irm "https://github.com/joeaandronyk/powershell-profile/raw/main/setup.ps1" | iex
+irm "https://raw.githubusercontent.com/joeandronyk/powershell-profile/main/setup.ps1" | iex
 ```
 
 ## 🛠️ Fix the Missing Font
@@ -47,4 +59,10 @@ PS> oh-my-posh font install
 
 After the profile is installed and active, run the `Edit-Profile` function to create a separate profile file for your current user. Make any changes and customizations in this new file named `profile.ps1`.
 
+
+## Set the Color Scheme and Font
+![image](images/powershell-settings.png)
+
 Now, enjoy your enhanced and stylish PowerShell experience! 🚀
+
+
