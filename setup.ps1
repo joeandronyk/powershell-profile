@@ -80,3 +80,6 @@ if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e)) {
 else {
     Write-Warning "Setup completed with errors. Please check the error messages above."
 }
+
+# Reload the profile
+. $profile
