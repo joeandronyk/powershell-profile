@@ -32,11 +32,10 @@ if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
         elseif ($PSVersionTable.PSEdition -eq "Desktop") {
             $profilePath = "$env:userprofile\Documents\WindowsPowerShell"
         }
-        $profilePath = Split-Path -parent $PROFILE
 
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -OutFile $PROFILE
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/ja-powershell-theme.omp.json -OutFile $profilePath\ja-powershell-theme.omp.json
-        Write-Host "The profile @ [$PROFILE] has been created and the oh-my-posh theme powershell-theme.omp.json has been added."
+        Write-Host "The profile @ [$PROFILE] has been created and the oh-my-posh ja-powershell-theme.omp.json theme has been added."
         Write-Host "If you want to make any personal changes or customizations, please do so at [$profilePath\Profile.ps1] as there is an updater in the installed profile which uses the hash to update the profile and will lead to loss of changes"
     }
     catch {
