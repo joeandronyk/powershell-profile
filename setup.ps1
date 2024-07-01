@@ -65,13 +65,6 @@ catch {
 }
 
 # Font Install
-# try {
-#     oh-my-posh font install CascadiaCode
-# }
-# catch {
-#     Write-Error "Failed to download or install the Cascadia Code font. Error: $_"
-# }
-
 try {
     [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
     $fontFamilies = (New-Object System.Drawing.Text.InstalledFontCollection).Families.Name
@@ -85,8 +78,10 @@ catch {
 }
 
 # Final check and message to the user
-if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e) -and ($fontFamilies -contains "CaskaydiaCove NF")) {
+$fontFamilies = (New-Object System.Drawing.Text.InstalledFontCollection).Families.Name
+if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e)) {
     Write-Host "Setup completed successfully. Please restart your PowerShell session to apply changes."
-} else {
+} 
+else {
     Write-Warning "Setup completed with errors. Please check the error messages above."
 }

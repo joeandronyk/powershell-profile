@@ -14,6 +14,8 @@ A stylish and functional PowerShell profile that looks and feels almost as good 
    winget install Microsoft.Powershell
    ```
 
+3. Open `Terminal` and open a `PowerShell` tab if it doesn't open one automatically.
+4. 
 ## ⚡ One Line Install (Elevated PowerShell Recommended)
 
 Execute the following command in an elevated PowerShell window to install the PowerShell profile:
