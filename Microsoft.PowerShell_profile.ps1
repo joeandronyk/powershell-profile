@@ -255,19 +255,8 @@ Set-PSReadLineOption -Colors @{
     String = 'DarkCyan'
 }
 
-# Get theme from profile.ps1 or use a default theme
-function Get-Theme {
-    if (Test-Path -Path $PROFILE.CurrentUserAllHosts -PathType leaf) {
-        $existingTheme = Select-String -Raw -Path $PROFILE.CurrentUserAllHosts -Pattern "oh-my-posh init pwsh --config"
-        if ($null -ne $existingTheme) {
-            Invoke-Expression $existingTheme
-            return
-        }
-    } else {
-        oh-my-posh init pwsh --config https://github.com/joeandronyk/powershell-profile/raw/main/ja-powershell-theme.omp.json | Invoke-Expression
-    }
-}
-
+# Set theme to ja-powershell-theme.omp.json
+oh-my-posh init pwsh --config $PROFILE/ja-powershell-theme.omp.json
 
 # Help Function
 function Show-Help {
