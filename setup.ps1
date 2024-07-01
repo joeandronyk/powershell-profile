@@ -26,13 +26,15 @@ if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
     try {
         # Detect Version of PowerShell & Create Profile directories if they do not exist.
         $profilePath = ""
+        $profileRoot = Split-Path -Parent $PROFILE
         if ($PSVersionTable.PSEdition -eq "Core") { 
-            $profilePath = "$env:userprofile\Documents\Powershell"
+            $profilePath = "$profileRoot\Documents\Powershell"
         }
         elseif ($PSVersionTable.PSEdition -eq "Desktop") {
-            $profilePath = "$env:userprofile\Documents\WindowsPowerShell"
+            $profilePath = "$profileRoot\Documents\WindowsPowerShell"
         }
 
+        Write-Host "Profile path is [$profilePath]"
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -OutFile $PROFILE
         Invoke-RestMethod https://github.com/joeandronyk/powershell-profile/raw/main/ja-powershell-theme.omp.json -OutFile $profilePath\ja-powershell-theme.omp.json
         Write-Host "The profile @ [$PROFILE] has been created and the oh-my-posh ja-powershell-theme.omp.json theme has been added."
