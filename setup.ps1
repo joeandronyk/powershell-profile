@@ -72,6 +72,9 @@ catch {
     Write-Error "Failed to download or install the Cascadia Code font. Error: $_"
 }
 
+# Install Terminal-Icons
+Install-Module -Name Terminal-Icons -Repository PSGallery
+
 # Final check and message to the user
 $fontFamilies = (New-Object System.Drawing.Text.InstalledFontCollection).Families.Name
 if ((Test-Path -Path $PROFILE) -and (winget list --name "OhMyPosh" -e)) {

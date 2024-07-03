@@ -259,6 +259,9 @@ Set-PSReadLineOption -Colors @{
 $profileRoot = Split-Path -Parent $PROFILE
 oh-my-posh init pwsh --config $profileRoot/ja-powershell-theme.omp.json | Invoke-Expression
 
+# Use Terminal Icons
+Import-Module Terminal-Icons
+
 # Help Function
 function Show-Help {
     @"
