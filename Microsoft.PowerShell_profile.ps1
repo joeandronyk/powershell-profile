@@ -77,12 +77,12 @@ Update-PowerShell
 
 
 # Admin Check and Prompt Customization
-$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+#$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 function prompt {
-    if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
+    #if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
     $Host.UI.RawUI.WindowTitle = Split-Path -Leaf (Get-Location)
 }
-$adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
+#$adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
 
 # Utility Functions
 function Test-CommandExists {
